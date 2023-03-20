@@ -149,6 +149,9 @@ function artist_fwd_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'artist_fwd_scripts' );
 
+
+require get_template_directory() . '/inc/cpt-tax.php';
+
 /**
  * Implement the Custom Header feature.
  */
