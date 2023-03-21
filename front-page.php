@@ -21,12 +21,26 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+			?>
+			<div class="entry-content">
+			<?php
+			if (function_exists( 'get_field' ) ) :
+				if ( get_field( 'hero_image') ) :
+					$images = get_field( 'hero_image' );
+					shuffle($images);
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
+					foreach( $images as $image ): ?>
+						<div class="img-wrapper">
+							<img class='hero-img' src="<?php echo esc_url($image ['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"/>	
+						</div>
+					<?php break;
+					endforeach; 
+					
+				endif;
 			endif;
+			?>
+			</div>
+		<?php
 
 		endwhile; // End of the loop.
 		?>
