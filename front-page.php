@@ -28,14 +28,9 @@ get_header();
 				if ( get_field( 'hero_image') ) :
 					$images = get_field( 'hero_image' );
 					shuffle($images);
-
-					foreach( $images as $image ): ?>
-						<div class="img-wrapper">
-							<img class='hero-img' src="<?php echo esc_url($image ['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']); ?>"/>	
-						</div>
-					<?php break;
-					endforeach; 
-					
+					?>
+					<img class='hero-img' src="<?php echo esc_url($images[0]['sizes']['large']); ?>" alt="<?php echo esc_attr($images[0]['alt']); ?>"/>
+					<?php 
 				endif;
 			endif;
 			?>

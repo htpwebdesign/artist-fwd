@@ -16,26 +16,66 @@ get_header();
 
 			<header class="page-header">
 				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				post_type_archive_title( '<h1 class="page-title">', '</h1>' );
 				the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
 			</header><!-- .page-header -->
 
 			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+				$args = array(
+					'post_type' => 'artist-services',
+					'posts_per_page' => -1,
+					'order' => 'ASC',
+					'orderby' => 'title',
+				);
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+				$query = new WP_Query( $args );
 
-			endwhile;
+				if ( $query -> have_posts() ) :
 
-			the_posts_navigation();
+					while ( $query -> have_posts() ) :
+						$query -> the_post();
+						?>
+						<div class="service-wrapper">
+							<button type="button" class="collapsible">
+								<h2><?php esc_html_e(get_the_title()); ?></h2>
+							</button>
+
+							<div class="service-content" style="display:none">
+								<?php
+								if (function_exists( 'get_field' ) ) :
+									
+									if ( get_field( 'service_description') ) :
+										?>
+										<p><?php the_field('service_description'); ?></p>
+										<?php 
+									endif;
+
+									if ( get_field( 'service_price') ) :
+										?>
+										<p><?php the_field('service_price'); ?></p>
+										<?php 
+									endif;
+
+								endif;
+								?>
+							</div>
+						</div>
+						<?php
+					endwhile;
+					wp_reset_postdata();
+				endif;
+
+				$args = array ( 'page_id' => 154 );
+
+				$query = new WP_Query( $args );
+				if ( $query -> have_posts() ) :
+					while ( $query -> have_posts() ) :
+						$query -> the_post();
+						the_content();
+					endwhile;
+					wp_reset_postdata();
+				endif;
 
 		else :
 
