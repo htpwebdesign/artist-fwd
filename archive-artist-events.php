@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages
+ * The template for displaying archive-artist-events page
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -34,11 +34,14 @@ get_header();
 				while ( $query -> have_posts() ) :
 					$query -> the_post();
 					?>
-							<h2><?php the_title("<h2>", "</h2>"); ?></h2>
+					<div class="event-wrapper">
+						<h2><?php the_title("<h2>", "</h2>"); ?></h2>
 
-							<?php
-							if (function_exists( 'get_field' ) ) :
-
+						<?php
+						if (function_exists( 'get_field' ) ) :
+							?>
+							
+								<?php
 								if ( get_field( 'event_photo') ) :
 									$photo = get_field('event_photo');
 									?>
@@ -66,17 +69,16 @@ get_header();
 									<?php 
 								endif;
 
-							endif;
-							?>
-						</div>
+								if ( get_field( 'event_map') ) :
+								acf_make_map( get_field( 'event_map' ) );
+								endif;	
+						endif;
+					?>
 					</div>
 					<?php
 				endwhile;
 				wp_reset_postdata();
 			endif;
-
-				$args = array ( 'page_id' => 154 );
-
 
 		else :
 
@@ -86,7 +88,7 @@ get_header();
 		?>
 
 
-	</main><!-- #main -->
+	</main>
 
 <?php
 get_sidebar();

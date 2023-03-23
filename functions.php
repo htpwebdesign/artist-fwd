@@ -209,3 +209,15 @@ add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 //     acf_update_setting('google_api_key', 'AIzaSyATzLvecNFYJ9ZoVr-bW3MNUxS7Cfd9vw4');
 // }
 // add_action('acf/init', 'my_acf_init');
+
+function acf_make_map( $acf_map_field ){
+	$address_field = $acf_map_field['address'];
+    $encoded_address = urlencode( $address_field );
+    echo '
+        <iframe
+            width="600"
+            height="450"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD1k2HJ2MXMKWyjPD4_NeXqTmBLPWgKRZU&q=' . $encoded_address . '" allowfullscreen>
+        </iframe>';
+}
