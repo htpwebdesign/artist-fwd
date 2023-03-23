@@ -20,15 +20,65 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
+			?>
+			<div class="entry-content">
 
-			get_template_part( 'template-parts/content', 'page' );
+			<?php
+				if (function_exists( 'get_field_object' ) ) :
+					
+					if ( get_field_object( 'about') ) :
+						$field = get_field_object('about');
+						?>
+						<h1><?php echo $field['label']; ?></h1>
+						<p><?php echo $field['value']; ?></p>
+						<?php 
+					endif;
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+				endif;
 
-		endwhile; // End of the loop.
+				if ( function_exists( 'get_field' ) ) :
+
+					if ( get_field( 'cv_link') ) :
+						?>
+						<a class="faux-btn" href="<?php the_field('cv_link'); ?>" target="_blank" rel="noopener noreferrer">CV Button</a> 
+						<?php
+					endif;
+
+					if ( get_field( 'portfolio_cta') ) :
+						?>
+						<a class="faux-btn" href="<?php the_field('portfolio_cta'); ?>" target="_blank" rel="noopener noreferrer">CV Button</a> 
+						<?php
+					endif;
+
+					if ( get_field( 'portrait') ) :
+						$portrait = get_field( 'portrait' );
+						?>
+						<img class='portrait' src="<?php echo esc_url($portrait['sizes']['portrait']); ?>" alt="<?php echo esc_attr($portrait['alt']); ?>"/>
+						<?php 
+					endif;
+
+				endif;
+				?>
+				<h2>Collaborators</h2>
+				<?php
+				if ( function_exists( 'get_field' ) ) :
+
+					if ( get_field( 'collab_links') ) :
+
+						$collabs = get_field( 'collab_links' );
+						foreach( $collabs as $collab ) :
+							?> 
+							<a href="<?php echo esc_url($collab['collab_name']['url']); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html($collab['collab_name']['title']); ?></a>
+							<?php
+						endforeach;
+
+					endif;
+
+				endif;
+				?>
+			</div>
+			<?php
+		endwhile;
 		?>
 
 	</main><!-- #main -->
