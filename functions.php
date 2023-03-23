@@ -48,7 +48,7 @@ function artist_fwd_setup() {
 
 	//Custom Image Crops
 	
-	add_image_size( 'portrait', 750, 500, true);
+	add_image_size( 'portrait', 600, 300, true);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
