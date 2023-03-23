@@ -16,26 +16,67 @@ get_header();
 
 			<header class="page-header">
 				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				post_type_archive_title( '<h1 class="page-title">', '</h1>' );
 				the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
-			</header><!-- .page-header -->
+			</header>
 
 			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			$args = array(
+				'post_type' => 'artist-events',
+				'posts_per_page' => -1,
+			);
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+			$query = new WP_Query( $args );
 
-			endwhile;
+			if ( $query -> have_posts() ) :
 
-			the_posts_navigation();
+				while ( $query -> have_posts() ) :
+					$query -> the_post();
+					?>
+							<h2><?php the_title("<h2>", "</h2>"); ?></h2>
+
+							<?php
+							if (function_exists( 'get_field' ) ) :
+
+								if ( get_field( 'event_photo') ) :
+									$photo = get_field('event_photo');
+									?>
+									<img class='event-photo' src="<?php echo esc_url($photo['sizes']['medium']); ?>" alt="<?php echo esc_attr($photo['alt']); ?>"/>
+									<?php 
+								endif;
+								
+								if ( get_field( 'events_calendar') ) :
+									?>
+									<p><?php the_field('events_calendar'); ?></p>
+									<?php 
+								endif;
+
+								if ( get_field( 'event_description') ) :
+									?>
+									<p><?php the_field('event_description'); ?></p>
+									<?php 
+								endif;
+
+								if ( get_field( 'event_collabs') ) :
+									$collab = get_field('event_collabs');
+									?>
+									<h3><?php esc_html_e($collab[0]['event_collab_names']); ?></h3>
+									<p><?php esc_html_e($collab[0]['event_collab_description']); ?></p>
+									<?php 
+								endif;
+
+							endif;
+							?>
+						</div>
+					</div>
+					<?php
+				endwhile;
+				wp_reset_postdata();
+			endif;
+
+				$args = array ( 'page_id' => 154 );
+
 
 		else :
 
@@ -43,6 +84,7 @@ get_header();
 
 		endif;
 		?>
+
 
 	</main><!-- #main -->
 
