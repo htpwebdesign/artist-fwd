@@ -29,7 +29,7 @@ get_header();
 					if ( get_field_object( 'about') ) :
 						$field = get_field_object('about');
 						?>
-						<h1><?php echo $field['label']; ?></h1>
+						<h1 class="page-title"><?php echo $field['label']; ?></h1>
 						<p><?php echo $field['value']; ?></p>
 						<?php 
 					endif;

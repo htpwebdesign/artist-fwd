@@ -22,7 +22,7 @@ get_header();
 			the_post();
 
 			?>
-			<div class="entry-content">
+			<div class="hero-banner">
 			<?php
 			if (function_exists( 'get_field' ) ) :
 				if ( get_field( 'hero_image') ) :

@@ -35,7 +35,7 @@ get_header();
 					$query -> the_post();
 					?>
 					<div class="event-wrapper">
-						<h2 class="event-name"><?php the_title("<h2>", "</h2>"); ?></h2>
+						<h2 class="event-name"><?php the_title(); ?></h2>
 
 						<?php
 						if (function_exists( 'get_field' ) ) :
