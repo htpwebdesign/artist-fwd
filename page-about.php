@@ -52,9 +52,7 @@ get_header();
 
 					if ( get_field( 'portrait') ) :
 						$portrait = get_field( 'portrait' );
-						?>
-						<img class='portrait' src="<?php echo esc_url($portrait['sizes']['portrait']); ?>" alt="<?php echo esc_attr($portrait['alt']); ?>"/>
-						<?php 
+						echo wp_get_attachment_image( $portrait, 'medium' );
 					endif;
 
 				endif;
@@ -81,8 +79,7 @@ get_header();
 		endwhile;
 		?>
 
-	</main><!-- #main -->
+	</main>
 
 <?php
-get_sidebar();
 get_footer();

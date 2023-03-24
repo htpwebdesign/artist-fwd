@@ -35,7 +35,7 @@ get_header();
 					$query -> the_post();
 					?>
 					<div class="event-wrapper">
-						<h2><?php the_title("<h2>", "</h2>"); ?></h2>
+						<h2 class="event-name"><?php the_title("<h2>", "</h2>"); ?></h2>
 
 						<?php
 						if (function_exists( 'get_field' ) ) :
@@ -44,28 +44,26 @@ get_header();
 								<?php
 								if ( get_field( 'event_photo') ) :
 									$photo = get_field('event_photo');
-									?>
-									<img class='event-photo' src="<?php echo esc_url($photo['sizes']['medium']); ?>" alt="<?php echo esc_attr($photo['alt']); ?>"/>
-									<?php 
+									echo wp_get_attachment_image( $photo, 'large' );
 								endif;
 								
 								if ( get_field( 'events_calendar') ) :
 									?>
-									<p><?php the_field('events_calendar'); ?></p>
+									<p class="event-date"><?php the_field('events_calendar'); ?></p>
 									<?php 
 								endif;
 
-								if ( get_field( 'event_description') ) :
+								if ( get_field( 'event_desc') ) :
 									?>
-									<p><?php the_field('event_description'); ?></p>
+									<p class="event-description"><?php the_field('event_description'); ?></p>
 									<?php 
 								endif;
 
 								if ( get_field( 'event_collabs') ) :
 									$collab = get_field('event_collabs');
 									?>
-									<h3><?php esc_html_e($collab[0]['event_collab_names']); ?></h3>
-									<p><?php esc_html_e($collab[0]['event_collab_description']); ?></p>
+									<h3 class="collab-name"><?php esc_html_e($collab[0]['event_collab_names']); ?></h3>
+									<p class="collab-desc"><?php esc_html_e($collab[0]['event_collab_description']); ?></p>
 									<?php 
 								endif;
 
@@ -91,5 +89,4 @@ get_header();
 	</main>
 
 <?php
-get_sidebar();
 get_footer();

@@ -28,20 +28,17 @@ get_header();
 				if ( get_field( 'hero_image') ) :
 					$images = get_field( 'hero_image' );
 					shuffle($images);
-					?>
-					<img class='hero-img' src="<?php echo esc_url($images[0]['sizes']['large']); ?>" alt="<?php echo esc_attr($images[0]['alt']); ?>"/>
-					<?php 
+					echo wp_get_attachment_image( $images[0], 'large' );
 				endif;
 			endif;
 			?>
 			</div>
 		<?php
 
-		endwhile; // End of the loop.
+		endwhile;
 		?>
 
-	</main><!-- #main -->
+	</main>
 
 <?php
-get_sidebar();
 get_footer();

@@ -46,10 +46,6 @@ function artist_fwd_setup() {
 		*/
 	add_theme_support( 'post-thumbnails' );
 
-	//Custom Image Crops
-	
-	add_image_size( 'portrait', 350, 600, true);
-
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
@@ -119,26 +115,6 @@ function artist_fwd_content_width() {
 add_action( 'after_setup_theme', 'artist_fwd_content_width', 0 );
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function artist_fwd_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'artist-fwd' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'artist-fwd' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-}
-add_action( 'widgets_init', 'artist_fwd_widgets_init' );
-
-/**
  * Enqueue scripts and styles.
  */
 function artist_fwd_scripts() {
@@ -155,13 +131,10 @@ function artist_fwd_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'artist_fwd_scripts' );
 
-
-require get_template_directory() . '/inc/cpt-tax.php';
-
 /**
- * Implement the Custom Header feature.
+ * Custom Post Types & Taxonomies
  */
-require get_template_directory() . '/inc/custom-header.php';
+require get_template_directory() . '/inc/cpt-tax.php';
 
 /**
  * Custom template tags for this theme.
@@ -196,19 +169,11 @@ if ( class_exists( 'WooCommerce' ) ) {
 /**
  * Google Maps API.
  */
-
- // Method 1: Filter.
 function my_acf_google_map_api( $api ){
     $api['key'] = 'AIzaSyATzLvecNFYJ9ZoVr-bW3MNUxS7Cfd9vw4';
     return $api;
 }
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
-
-// Method 2: Setting.
-// function my_acf_init() {
-//     acf_update_setting('google_api_key', 'AIzaSyATzLvecNFYJ9ZoVr-bW3MNUxS7Cfd9vw4');
-// }
-// add_action('acf/init', 'my_acf_init');
 
 function acf_make_map( $acf_map_field ){
 	$address_field = $acf_map_field['address'];
