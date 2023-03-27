@@ -185,3 +185,179 @@ function acf_make_map( $acf_map_field ){
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD1k2HJ2MXMKWyjPD4_NeXqTmBLPWgKRZU&q=' . $encoded_address . '" allowfullscreen>
         </iframe>';
 }
+
+
+# Presentation
+
+// 1. How to eliminate Dashboard widgets and add your own widgets like Tutorial links / video 
+// without a plugin.
+
+// https://developer.wordpress.org/apis/dashboard-widgets/
+
+
+
+// i. eliminate dashboard widgets
+
+//removing default dashboard widgets
+// To remove dashboard widget, use the remove_meta_box()  function.
+// remove_meta_box( string $id, string|array|WP_Screen $screen, string $context )
+
+//default widget names
+
+/*
+// Main column (left): 
+// Browser Update Required
+$wp_meta_boxes['dashboard']['normal']['high']['dashboard_browser_nag']; 
+// PHP Update Required
+$wp_meta_boxes['dashboard']['normal']['high']['dashboard_php_nag']; 
+
+// At a Glance
+$wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'];
+// Right Now
+$wp_meta_boxes['dashboard']['normal']['core']['network_dashboard_right_now'];
+// Activity
+$wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'];
+// Site Health Status
+$wp_meta_boxes['dashboard']['normal']['core']['health_check_status'];
+
+// Side Column (right): 
+// WordPress Events and News
+$wp_meta_boxes['dashboard']['side']['core']['dashboard_primary'];
+// Quick Draft, Your Recent Drafts
+$wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']; 
+
+*/
+
+// REMOVING QUICK DRAFT
+/*
+// Create the function to use in the action hook
+function wporg_remove_dashboard_widget() {
+	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+} 
+// Hook into the 'wp_dashboard_setup' action to register our function
+add_action( 'wp_dashboard_setup', 'wporg_remove_dashboard_widget' );
+
+*/
+
+
+// ii. create custom dashboard widget
+
+/*
+
+add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
+  
+function my_custom_dashboard_widgets() {
+
+// Globalize the metaboxes array, this holds all the widgets for wp-admin.
+global $wp_meta_boxes;
+
+// wp_add_dashboard_widget( $widget_id, $widget_name, $callback, $control_callback, $callback_args );
+ 
+wp_add_dashboard_widget('custom_links_widget', 'Org VS Com', 'custom_dashboard_links');
+}
+ 
+function custom_dashboard_links() {
+	
+echo '
+<a href="https://www.youtube.com/watch?v=Z1ND4HeGj3o"> Link to video</a>
+';
+}
+
+*/
+
+
+
+
+// 2. How to eliminate, rename, and reorder Dashboard menu items without a plugin.
+
+
+// i. eliminate dashboard menu items
+
+// //https://developer.wordpress.org/reference/functions/remove_menu_page/
+
+/*
+function remove_menus() {
+	remove_menu_page('edit-comments.php'); 
+
+}
+add_action('admin_menu', 'remove_menus');
+*/
+
+
+
+
+
+// ii. rename  menu items
+
+// https://developer.wordpress.org/reference/functions/add_menu_page/
+// Default: bottom of menu structure
+
+    // 2 – Dashboard
+    // 4 – Separator
+    // 5 – Posts
+    // 10 – Media
+    // 15 – Links
+    // 20 – Pages
+    // 25 – Comments
+    // 59 – Separator
+    // 60 – Appearance
+    // 65 – Plugins
+    // 70 – Users
+    // 75 – Tools
+    // 80 – Settings
+    // 99 – Separator
+
+	
+/*
+function rename_admin_menu_items() {
+	global $menu; 
+
+	//rename submenu 
+	global $submenu; 
+	
+	//wp-admin > menu.php
+
+// print_r($menu);
+
+	$menu[10][0]= 'demo';
+
+// to find the page, refer back to https://developer.wordpress.org/reference/functions/remove_menu_page/
+	$submenu['upload.php'][5][0] = "media changed";
+}
+
+add_action ('admin_menu', 'rename_admin_menu_items');
+*/
+
+
+//iii. reorder menu items
+
+
+// // add_filter( string $hook_name, callable $callback, int $priority = 10, int $accepted_args = 1 )
+
+// // (accepted arguments in the function)
+
+
+
+
+/*
+function custom_menu_order( $menu_ord ) {
+	
+	     if ( !$menu_ord ) return true;
+	
+	     return array(
+		
+		          'index.php', // Dashboard
+		
+		          'edit.php?post_type=page', // Pages
+		
+		          'edit.php', // Posts
+		
+		     );
+		
+		}
+	
+	add_filter( 'custom_menu_order', 'custom_menu_order', 10, 1 );
+		
+	add_filter( 'menu_order', 'custom_menu_order', 10, 1 );
+
+	*/
