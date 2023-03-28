@@ -125,6 +125,11 @@ function artist_fwd_scripts() {
 
 	wp_enqueue_script( 'artist-fwd-accordion', get_template_directory_uri() . '/js/accordion.js', array(), _S_VERSION, true );
 
+	if(is_post_type_archive( 'artist-events' )){
+		wp_enqueue_script( 'artist-fwd-google-key', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyATzLvecNFYJ9ZoVr-bW3MNUxS7Cfd9vw4' );
+		wp_enqueue_script( 'artist-fwd-google-maps', get_template_directory_uri() . '/js/google-map.js', array(), _S_VERSION, true );
+	}
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -165,7 +170,6 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
 
-
 /**
  * Google Maps API.
  */
@@ -174,17 +178,6 @@ function my_acf_google_map_api( $api ){
     return $api;
 }
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
-
-function acf_make_map( $acf_map_field ){
-	$address_field = $acf_map_field['address'];
-    $encoded_address = urlencode( $address_field );
-    echo '
-        <iframe
-            width="600"
-            height="450"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD1k2HJ2MXMKWyjPD4_NeXqTmBLPWgKRZU&q=' . $encoded_address . '" allowfullscreen>
-        </iframe>';
-}
 
 
 # Presentation

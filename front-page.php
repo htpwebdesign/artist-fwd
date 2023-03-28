@@ -31,6 +31,7 @@ get_header();
 					echo wp_get_attachment_image( $images[0], 'large' );
 				endif;
 			endif;
+			
 			?>
 			</div>
 		<?php

@@ -36,7 +36,7 @@ get_header();
 					while ( $query -> have_posts() ) :
 						$query -> the_post();
 						?>
-						<div class="service-wrapper">
+						<article class="service-wrapper">
 							<button type="button" class="collapsible">
 									<?php esc_html_e(get_the_title()); ?> 
 									<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24">
@@ -44,7 +44,7 @@ get_header();
 									</svg>
 							</button>
 
-							<div class="service-content" style="display:none">
+							<section class="service-content" style="display:none">
 								<?php
 								if (function_exists( 'get_field' ) ) :
 									
@@ -62,8 +62,8 @@ get_header();
 
 								endif;
 								?>
-							</div>
-						</div>
+							</section>
+						</article>
 						<?php
 					endwhile;
 					wp_reset_postdata();

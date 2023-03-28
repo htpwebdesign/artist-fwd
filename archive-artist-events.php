@@ -34,7 +34,7 @@ get_header();
 				while ( $query -> have_posts() ) :
 					$query -> the_post();
 					?>
-					<div class="event-wrapper">
+					<article class="event-wrapper">
 						<h2 class="event-name"><?php the_title(); ?></h2>
 
 						<?php
@@ -67,12 +67,21 @@ get_header();
 									<?php 
 								endif;
 
+
+
 								if ( get_field( 'event_map') ) :
-								acf_make_map( get_field( 'event_map' ) );
+									$location = get_field('event_map');
+									
+									if( $location ): ?>
+										<div class="acf-map" data-zoom="16">
+											<div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
+										</div>
+									<?php endif; 
+								
 								endif;	
 						endif;
 					?>
-					</div>
+					</article>
 					<?php
 				endwhile;
 				wp_reset_postdata();
