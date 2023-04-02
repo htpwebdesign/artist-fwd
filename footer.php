@@ -13,16 +13,21 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			<p>&copy; Elisa He, Henry Vu, Len Tong, Peter Nguyen 2023.</p>
-			<nav class="footer-info">
+			<div class="footer-logo">
+				<?php
+				the_custom_logo();
+				?>
+			</div>
+			<nav class="footer-nav">
 				<?php
 				wp_nav_menu(
 					array(
 						'theme_location' => 'footer-menu'
 						)
 					);
-				?>
+					?>
 			</nav>
+			<p>&copy; Elisa He, Henry Vu, Len Tong, Peter Nguyen 2023.</p>
 		</div>
 
 	</footer>
