@@ -1,0 +1,12 @@
+@media screen and (min-width: 37.5rem) {
+    
+    .site-header {
+        display: flex;
+        align-items: center;
+
+        .nav-menu {
+            justify-content: flex-end;
+        }
+    }
+
+}

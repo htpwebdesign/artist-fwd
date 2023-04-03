@@ -96,4 +96,22 @@
 			menuItem.classList.toggle( 'focus' );
 		}
 	}
+
+	// Code below is modified from:
+	// https://css-tricks.com/working-with-javascript-media-queries/
+
+	const mediaQuery = window.matchMedia('(min-width: 37.5rem)')
+
+	function handleScreenChange(e) {
+		// Check if the media query is true
+		if (e.matches) {
+			// Then log the following message to the console
+			siteNavigation.classList.remove( 'toggled' );
+			button.setAttribute( 'aria-expanded', 'false' );
+		};
+	};
+
+	// Register event listener
+	mediaQuery.addEventListener('change', handleScreenChange);
+
 }() );
