@@ -28,7 +28,7 @@ get_header();
 				if ( get_field( 'hero_image') ) :
 					$images = get_field( 'hero_image' );
 					shuffle($images);
-					echo wp_get_attachment_image( $images[0], 'large' );
+					echo wp_get_attachment_image( $images[0], 'full' );
 				endif;
 			endif;
 			
