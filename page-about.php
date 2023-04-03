@@ -42,6 +42,11 @@ get_header();
 					?>
 					<section class="about-accessories"></section>
 						<?php
+						if ( get_field( 'portrait') ) :
+							$portrait = get_field( 'portrait' );
+							echo wp_get_attachment_image( $portrait, 'medium' );
+						endif;
+						
 						if ( get_field( 'cv_link') ) :
 							?>
 							<a class="faux-btn" href="<?php the_field('cv_link'); ?>" target="_blank" rel="noopener noreferrer">CV Button</a> 
@@ -52,11 +57,6 @@ get_header();
 							?>
 							<a class="faux-btn" href="<?php the_field('portfolio_cta'); ?>" target="_blank" rel="noopener noreferrer">CV Button</a> 
 							<?php
-						endif;
-
-						if ( get_field( 'portrait') ) :
-							$portrait = get_field( 'portrait' );
-							echo wp_get_attachment_image( $portrait, 'medium' );
 						endif;
 					?>
 					</section>
