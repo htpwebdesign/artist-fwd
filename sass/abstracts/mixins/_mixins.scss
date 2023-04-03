@@ -9,3 +9,15 @@
 @mixin column-width($numberColumns: 3) {
 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
+
+// Display flex with justify-content
+@mixin flex-justify($justify) {
+	display: flex;
+	justify-content: $justify
+   }
+
+// Mixin for centering element
+@mixin img-center {
+	display: block;
+    margin: 0 auto;
+}

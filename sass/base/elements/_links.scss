@@ -1,8 +1,8 @@
 a {
-	color: $color__link;
+	color: $color__primary;
 
 	&:visited {
-		color: $color__link-visited;
+		color: $color__primary;
 	}
 
 	&:hover,
@@ -18,5 +18,6 @@ a {
 	&:hover,
 	&:active {
 		outline: 0;
+		text-shadow: 1px 1px 1px $color__primary;
 	}
 }

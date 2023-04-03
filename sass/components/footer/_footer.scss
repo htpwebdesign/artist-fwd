@@ -1,0 +1,20 @@
+.site-footer {
+    background-color: $color__secondary;
+    color: $color__primary;
+    padding-top: 2rem;
+
+    .site-info {
+        @include flex-justify(space-around);
+    }
+
+    li {
+        list-style: none;
+        a {
+            text-decoration: none;
+        }
+    }
+
+    p {
+        text-align: center;
+    }
+}

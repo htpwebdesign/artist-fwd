@@ -27,8 +27,9 @@
 					);
 					?>
 			</nav>
-			<p>&copy; Elisa He, Henry Vu, Len Tong, Peter Nguyen 2023.</p>
 		</div>
+		
+		<p>&copy; Elisa He, Henry Vu, Len Tong, Peter Nguyen 2023.</p>
 
 	</footer>
 

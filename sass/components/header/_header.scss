@@ -1,12 +1,12 @@
 @media screen and (min-width: 43.75rem) {
     
     .site-header {
-        display: flex;
+        @include flex-justify(space-between);
         align-items: center;
         background-color: $color__secondary;
 
-        .nav-menu {
-            justify-content: flex-end;
+        .main-navigation{ 
+            max-width: fit-content;
             margin-right: 2rem;
         }
     }
