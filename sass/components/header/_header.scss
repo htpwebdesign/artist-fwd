@@ -3,6 +3,7 @@
     .site-header {
         display: flex;
         align-items: center;
+        background-color: $color__secondary;
 
         .nav-menu {
             justify-content: flex-end;

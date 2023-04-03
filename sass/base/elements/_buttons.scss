@@ -19,3 +19,13 @@ input[type="submit"] {
 		border-color: $color__border-button-focus;
 	}
 }
+
+.faux-btn {
+	background: $color__secondary;
+	border: 2px solid $color__accent;
+	padding: 0.5rem;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	margin: 1rem 0;
+}
