@@ -13,11 +13,11 @@
 			float: left;
 			position: absolute;
 			top: 100%;
-			left: -999em;
+			left: -999rem;
 			z-index: 99999;
 
 			ul {
-				left: -999em;
+				left: -999rem;
 				top: 0;
 			}
 
@@ -91,7 +91,7 @@
 .post-navigation {
 
 	.site-main & {
-		margin: 0 0 1.5em;
+		margin: 0 0 1.5rem;
 	}
 
 	.nav-links {
@@ -146,7 +146,7 @@
 		float: left;
 		position: absolute;
 		top: 100%;
-		left: -999em;
+		left: -999rem;
 		z-index: 99999;
 		display: flex;
 		flex-direction: column;

@@ -100,7 +100,7 @@
 	// Code below is modified from:
 	// https://css-tricks.com/working-with-javascript-media-queries/
 
-	const mediaQuery = window.matchMedia('(min-width: 37.5rem)')
+	const mediaQuery = window.matchMedia('(min-width: 43.75rem)')
 
 	function handleScreenChange(e) {
 		// Check if the media query is true
