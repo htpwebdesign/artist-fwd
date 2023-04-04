@@ -180,6 +180,15 @@ function my_acf_google_map_api( $api ){
 }
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
+remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+
+add_filter( 'woocommerce_get_image_size_thumbnail', function( $size ) {
+	return array(
+	  'width'  => 300,
+	  'height' => 300,
+	  'crop'   => 1,
+	);
+});
 
 # Presentation
 
