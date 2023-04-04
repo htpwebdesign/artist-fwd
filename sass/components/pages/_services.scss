@@ -1,7 +1,9 @@
 .post-type-archive-artist-services {
 
-   @include flex-justify(center);
-   flex-wrap: wrap;
+    .page-wrap{
+        display: flex;
+    }
+
 
 
     .service-contain{
@@ -14,8 +16,8 @@
         border: 0;
         background-color: transparent;
         border-bottom: 3px solid #35598B ;
-        width: 90%;
-        max-width: 25rem;
+        width: 100%;
+        max-width: 50rem;
         font-family: $font__main;
         padding: 0;
     
@@ -27,6 +29,8 @@
         font-weight: 600;
         color: $color__heading-main;
     }
+
+ 
 
     
     #wpforms-151-field_3,#wpforms-151-field_4,#wpforms-151-field_5,#wpforms-151-field_8,#wpforms-151-field_7 {
