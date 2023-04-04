@@ -1,37 +1,71 @@
 .post-type-archive-artist-services {
 
-    .page-wrap{
-        display: flex;
+    header {
+        text-align: center;
     }
 
+    #primary.site-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
+    .page-wrap{
+        display: flex;
+        flex-wrap: wrap;
+        
+       
+    }
+
+    .service-content {
+        background-color: $color__secondary;
+        padding: 1rem;
+        
+    }
 
     .service-contain{
        margin: 0 auto;
+       width: 100%;
+       max-width: 33rem ;
+       padding: 2rem 1rem;
+    }
+
+    .service-wrapper {
+       
+        padding-top: 1rem;
+        margin-top: 2rem;
+
     }
 
     .collapsible {
+        border-bottom: 3px solid #35598B ;
         @include flex-justify(space-between);
         flex-wrap: wrap;
-        border: 0;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
         background-color: transparent;
-        border-bottom: 3px solid #35598B ;
         width: 100%;
-        max-width: 50rem;
         font-family: $font__main;
         padding: 0;
     
     }
 
+    
+
     p.collapsible-title {
         margin: 0;
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: 600;
         color: $color__heading-main;
     }
 
  
-
+    #wpforms-151 {
+        width: 35rem;
+        padding: 1rem;
+       
+    }
     
     #wpforms-151-field_3,#wpforms-151-field_4,#wpforms-151-field_5,#wpforms-151-field_8,#wpforms-151-field_7 {
         border: 1px solid $color__accent;
@@ -46,6 +80,31 @@
         border: 2px solid $color__heading-main;
         background-color: $color__heading-main;
         color: #fff;
+    }
+
+    .service-price {
+        font-weight: 600;
+    }
+
+
+    @media screen and (min-width: 43.75rem) {
+        .page-wrap {
+            flex-wrap: nowrap;
+            max-width: 100%;
+        }
+
+       .service-contain {
+        max-width: 30rem;
+        margin-right: 4rem;
+       
+       }
+
+       p.collapsible-title {
+        
+        font-size: 1.3rem;
+       
+    }
+
     }
 
 }

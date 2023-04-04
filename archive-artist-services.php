@@ -58,13 +58,13 @@ get_header();
 									
 									if ( get_field( 'service_description') ) :
 										?>
-                <p><?php the_field('service_description'); ?></p>
+                <p class="service-desc"><?php the_field('service_description'); ?></p>
                 <?php 
 									endif;
 
 									if ( get_field( 'service_price') ) :
 										?>
-                <p><?php the_field('service_price'); ?></p>
+                <p class="service-price"><?php the_field('service_price'); ?></p>
                 <?php 
 									endif;
 
@@ -77,7 +77,7 @@ get_header();
 					wp_reset_postdata();
 				endif;
 			echo	"</div>";
-				echo do_shortcode('[wpforms id="151"]');
+				echo do_shortcode('[wpforms id="151" title="true"]');
 
 		else :
 
