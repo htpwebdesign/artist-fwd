@@ -21,3 +21,11 @@
 	display: block;
     margin: 0 auto;
 }
+
+
+// Light font for titles
+
+@mixin light-title {
+	font-weight: 600;
+	font-size: 1.5rem;
+}
