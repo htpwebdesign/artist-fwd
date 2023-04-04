@@ -4,5 +4,61 @@
             @include img-center;
            
         }
+
+        h1 {
+            @include flex-justify(center);
+            content: "how it all started";
+        }
+
+        p{
+            text-align: left;
+            margin: 0 auto; 
+            max-width: 25rem;
+            padding: .5rem 1rem;
+            font-size: .875rem; 
+            font-weight: 300;
+        }
+
     }
+
+    .about-collabs {
+        h2 {
+            @include flex-justify(center);
+        }
+
+        .collab-wrap{
+            @include flex-justify(space-between);
+            flex-wrap:wrap;
+            padding: .5rem 1rem;
+            max-width: 25rem;
+            margin: 0 auto;
+            
+        };
+
+    }
+
+    .about-accessories {
+
+        @include flex-justify(center);
+        flex-wrap: wrap;
+        padding-top: 1rem;
+
+        .faux-btn {
+            width: 16.9375rem;
+            height: 4rem;
+            @include flex-justify(center);
+            align-items: center;
+            margin: .5rem;
+            text-transform: uppercase;
+        }
+    }
+
+
+    h1,h2 {
+        @include light-title;
+    }
+    
+    display: flex;
+    flex-wrap: wrap;
+ 
 }

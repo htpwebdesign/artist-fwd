@@ -52,20 +52,22 @@ get_header();
 						?>
         <section class="about-collabs">
             <h2><?php echo esc_html($collabObj['label']); ?></h2>
-            <?php
+            <div class="collab-wrap">
+                <?php
 
 							$len = count($collabs);
 							foreach( $collabs as $collab ) :
 								?>
-            <a class="collaborator" href="<?php echo esc_url($collab['collab_name']['url']); ?>" target="_blank"
-                rel="noopener noreferrer"><?php echo esc_html($collab['collab_name']['title']); ?></a>
-            <?php
+                <a class="collaborator" href="<?php echo esc_url($collab['collab_name']['url']); ?>" target="_blank"
+                    rel="noopener noreferrer"><?php echo esc_html($collab['collab_name']['title']); ?></a>
+                <?php
 								if( $len > 1) :
 									echo '<br>'; 
 									$len--;
 								endif;
 							endforeach;
 							?>
+            </div>
         </section>
         <?php
 					endif;
@@ -79,14 +81,14 @@ get_header();
 						if ( get_field( 'cv_link') ) :
 							?>
             <a class="faux-btn" href="<?php the_field('cv_link'); ?>" target="_blank" rel="noopener noreferrer">CV
-                Button</a>
+            </a>
             <?php
 						endif;
 
 						if ( get_field( 'portfolio_cta') ) :
 							?>
-            <a class="faux-btn" href="<?php the_field('portfolio_cta'); ?>" target="_blank" rel="noopener noreferrer">CV
-                Button</a>
+            <a class="faux-btn" href="<?php the_field('portfolio_cta'); ?>" target="_blank"
+                rel="noopener noreferrer">Portolio</a>
             <?php
 						endif;
 					?>
