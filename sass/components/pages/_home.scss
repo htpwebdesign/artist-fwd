@@ -2,6 +2,15 @@
         .hero-banner {
             img {
                 object-fit: cover;
+                position: fixed;
+                height: 100vh;
             }
+        }
+
+        .site-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
         }
 }

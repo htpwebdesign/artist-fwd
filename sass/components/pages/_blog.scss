@@ -1,3 +1,14 @@
 .blog {
+    article {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+    }
 
+    article:nth-child(even) {
+        background-color: $color__accent;
+    }
+
+    article:nth-child(odd) {
+        background-color: $color__secondary;
+    }
 }
