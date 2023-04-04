@@ -12,6 +12,7 @@
     .site-info {
         @include flex-justify(space-around);
         align-items: center;
+        width: 100%;
     }
 
     li {
