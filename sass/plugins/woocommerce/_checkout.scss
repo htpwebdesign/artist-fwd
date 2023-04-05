@@ -1,3 +1,32 @@
+.woocommerce-checkout {
+
+	.checkout, .checkout_coupon  {
+		padding-bottom: 1.5rem;
+
+		button {
+			font-weight: 600;
+		}
+
+		input, 
+		textarea, 
+		fieldset,
+		button,
+		.select2-selection,
+		.wc-stripe-elements-field {
+			background: $color__secondary;
+			border: 2px solid $color__accent;
+		}
+	}
+
+	.woocommerce-info {
+		background-color: $color__accent;
+		font-weight: 600;
+		width: fit-content;
+		padding: 0.25rem;
+		border-radius: 0.25rem;
+	}
+}
+
 @media screen and (min-width: 768px) {
 
 	.col2-set {
