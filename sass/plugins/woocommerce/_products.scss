@@ -2,7 +2,14 @@
 	margin-bottom: 1rem;
 }
 
-.page-numbers {
+.added_to_cart {
+	background: $color__secondary;
+	border: 2px solid $color__accent;
+	padding: 0.25rem;
+	border-radius: 0.25rem;
+}
+
+.woocommerce-pagination {
 	padding: 0;
 	margin: 0;
 	text-align: center;
@@ -48,6 +55,7 @@ ul.products {
 			background: $color__secondary;
 			border: 2px solid $color__accent;
 			padding: 0.5rem;
+			margin-bottom: 0.5rem;
 			text-decoration: none;
 			display: block;
 		}
