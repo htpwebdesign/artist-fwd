@@ -2,7 +2,9 @@
     background-color: $color__secondary;
     color: $color__primary;
     padding-top: 0.5rem;
-    margin-top: 1rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 
     .menu {
         padding: 0;
@@ -12,7 +14,6 @@
     .site-info {
         @include flex-justify(space-around);
         align-items: center;
-        width: 100%;
     }
 
     li {

@@ -8,10 +8,20 @@
 	text-align: center;
 
 	li {
-		border: 2px solid $color__accent;
-		width: 2rem;
 		display: inline-block;
-		border-radius: 50%;
+
+		a {
+			border: 2px solid $color__accent;
+			border-radius: 50%;
+			width: 2rem;
+			display: block;
+		}
+
+		:not(a) {
+			font-weight: 800;
+			width: 2rem;
+		}
+
 	}
 }
 
