@@ -10,18 +10,18 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="site-main">
 
-		<?php if ( have_posts() ) : ?>
+    <?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<?php
+    <header class="page-header">
+        <?php
 				post_type_archive_title( '<h1 class="page-title">', '</h1>' );
 				the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
-			</header>
+    </header>
 
-			<?php
+    <?php
 			$args = array(
 				'post_type' => 'artist-events',
 				'posts_per_page' => -1,
@@ -34,14 +34,14 @@ get_header();
 				while ( $query -> have_posts() ) :
 					$query -> the_post();
 					?>
-					<article class="event-wrapper">
-						<h2 class="event-name"><?php the_title(); ?></h2>
+    <article class="event-wrapper">
+        <h2 class="event-name"><?php the_title(); ?></h2>
 
-						<?php
+        <?php
 						if (function_exists( 'get_field' ) ) :
 							?>
-							
-								<?php
+
+        <?php
 								if ( get_field( 'event_photo') ) :
 									$photo = get_field('event_photo');
 									echo wp_get_attachment_image( $photo, 'large' );
@@ -49,22 +49,26 @@ get_header();
 								
 								if ( get_field( 'events_calendar') ) :
 									?>
-									<p class="event-date"><?php the_field('events_calendar'); ?></p>
-									<?php 
+        <p class="event-date"><?php the_field('events_calendar'); ?></p>
+        <?php 
+								$current_datetime = current_datetime()->format('F j, Y g:i  a');
+
+								echo $current_datetime;
+								
 								endif;
 
 								if ( get_field( 'event_desc') ) :
 									?>
-									<p class="event-description"><?php the_field('event_description'); ?></p>
-									<?php 
+        <p class="event-description"><?php the_field('event_description'); ?></p>
+        <?php 
 								endif;
 
 								if ( get_field( 'event_collabs') ) :
 									$collab = get_field('event_collabs');
 									?>
-									<h3 class="collab-name"><?php esc_html_e($collab[0]['event_collab_names']); ?></h3>
-									<p class="collab-desc"><?php esc_html_e($collab[0]['event_collab_description']); ?></p>
-									<?php 
+        <h3 class="collab-name"><?php esc_html_e($collab[0]['event_collab_names']); ?></h3>
+        <p class="collab-desc"><?php esc_html_e($collab[0]['event_collab_description']); ?></p>
+        <?php 
 								endif;
 
 
@@ -73,16 +77,17 @@ get_header();
 									$location = get_field('event_map');
 									
 									if( $location ): ?>
-										<div class="acf-map" data-zoom="16">
-											<div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
-										</div>
-									<?php endif; 
+        <div class="acf-map" data-zoom="16">
+            <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>"
+                data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
+        </div>
+        <?php endif; 
 								
 								endif;	
 						endif;
 					?>
-					</article>
-					<?php
+    </article>
+    <?php
 				endwhile;
 				wp_reset_postdata();
 			endif;
@@ -95,7 +100,7 @@ get_header();
 		?>
 
 
-	</main>
+</main>
 
 <?php
 get_footer();

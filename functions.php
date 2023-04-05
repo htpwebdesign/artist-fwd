@@ -190,6 +190,9 @@ add_filter( 'woocommerce_get_image_size_thumbnail', function( $size ) {
 	);
 });
 
+
+
+
 # Presentation
 
 // 1. How to eliminate Dashboard widgets and add your own widgets like Tutorial links / video 
