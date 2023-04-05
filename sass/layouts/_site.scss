@@ -1,7 +1,4 @@
-.page-id-21,
-.page-id-28, 
-.archive,
-.blog {
+body:not(.home) {
     .site-main {
         margin: 0 1rem;
         padding-bottom: 10rem;
@@ -9,10 +6,7 @@
 }
 
 @media (min-width: 100rem) {
-    .page-id-21 .site,
-    .page-id-28 .site, 
-    .archive .site,
-    .blog .site {
+    body:not(.home) .site {
           display: grid;
           grid-template-columns: 1fr minmax(0, 100rem) 1fr;
           grid-template-areas:

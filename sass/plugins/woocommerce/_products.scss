@@ -14,13 +14,13 @@
 		a {
 			border: 2px solid $color__accent;
 			border-radius: 50%;
-			width: 2rem;
+			min-width: 2rem;
 			display: block;
 		}
 
 		:not(a) {
 			font-weight: 800;
-			width: 2rem;
+			min-width: 2rem;
 		}
 
 	}
