@@ -1,7 +1,18 @@
 .blog {
+
+    .page-title{
+        padding: 1rem;
+        font-size: 2.5rem;
+    }
+
+   header {
+        text-align: center;
+    }
     article {
         padding: 0.5rem 1rem;
         border-radius: 0.5rem;
+        max-width: 55rem;
+        margin: 1rem auto;
     }
 
     article:nth-child(even) {

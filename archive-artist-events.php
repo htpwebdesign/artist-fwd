@@ -23,9 +23,7 @@ get_header();
 
     <?php
 
-			$current_datetime = current_datetime()->format('F j, Y g:i  a');
-
-			echo $current_datetime;
+		
 			
 			$args = array(
 				'post_type' => 'artist-events',
@@ -43,7 +41,7 @@ get_header();
         <h2 class="event-name"><?php the_title(); ?></h2>
 
         <?php
-
+			
 
 					
 						if (function_exists( 'get_field' ) ) :
@@ -51,33 +49,35 @@ get_header();
 
         <?php
 								
+								if ( get_field( 'event_photo') ) :
+									$photo = get_field('event_photo');
+									echo wp_get_attachment_image( $photo, 'medium' );
+								endif;
+								
+								
 							if ( get_field( 'events_calendar') ) :
 
-									if($current_datetime < (the_field('events_calendar'))):
+									
 									
 									?>
         <p class="event-date"><?php the_field('events_calendar'); ?></p>
         <?php 
 								
-								
-								
-								if ( get_field( 'event_photo') ) :
-									$photo = get_field('event_photo');
-									echo wp_get_attachment_image( $photo, 'large' );
-								endif;
-								
+									endif;
 
-								if ( get_field( 'event_desc') ) :
+								if ( get_field( 'event_description') ) :
 									?>
         <p class="event-description"><?php the_field('event_description'); ?></p>
-        <?php 
+        <div>
+            <?php 
 								endif;
 
 								if ( get_field( 'event_collabs') ) :
 									$collab = get_field('event_collabs');
 									?>
-        <h3 class="collab-name"><?php esc_html_e($collab[0]['event_collab_names']); ?></h3>
-        <p class="collab-desc"><?php esc_html_e($collab[0]['event_collab_description']); ?></p>
+            <h3 class="collab-name"><?php esc_html_e($collab[0]['event_collab_names']); ?></h3>
+            <p class="collab-desc"><?php esc_html_e($collab[0]['event_collab_description']); ?></p>
+        </div>
         <?php 
 								endif;
 
@@ -94,8 +94,8 @@ get_header();
         <?php
 							 		endif; 
 								endif;
-								endif;	
-							endif;
+								
+							
 						endif;
 					?>
     </article>
