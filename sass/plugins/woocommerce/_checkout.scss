@@ -13,8 +13,7 @@
 		button,
 		.select2-selection,
 		.wc-stripe-elements-field {
-			background: $color__secondary;
-			border: 2px solid $color__accent;
+			@include border;
 		}
 	}
 

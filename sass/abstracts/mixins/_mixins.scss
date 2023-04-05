@@ -29,3 +29,9 @@
 	font-weight: 600;
 	font-size: 1.5rem;
 }
+
+// Border and background for button
+@mixin border {
+	background: $color__secondary;
+	border: 2px solid $color__accent;
+}

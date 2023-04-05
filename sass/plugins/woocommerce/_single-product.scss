@@ -1,5 +1,48 @@
 .single-product {
 
+	.woocommerce-product-gallery {
+		padding-left: 1rem;
+	}
+
+	.entry-summary {
+		padding: 1rem;
+		@include border;
+	}
+
+	.tabs {
+		display: flex;
+		li {
+			flex-grow: 1
+		}
+		a {
+			text-align: center;
+			@include border;
+			border-top: none;
+			border-bottom: none;
+		}
+	}
+
+	.woocommerce-Tabs-panel {
+		@include border;
+		padding: 0 1rem;
+		margin-top: 0;
+	}
+	
+	button, 
+	input  {
+		@include border;
+		margin: 0.25rem 0;
+	}
+
+	ul.products {
+		display: flex;
+		flex-wrap: wrap;
+
+		li {
+			clear: both;
+		}
+	}
+
 	div.product {
 		position: relative;
 
