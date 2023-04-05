@@ -3,8 +3,7 @@
 }
 
 .added_to_cart {
-	background: $color__secondary;
-	border: 2px solid $color__accent;
+	@include border;
 	padding: 0.25rem;
 	border-radius: 0.25rem;
 }
@@ -61,8 +60,7 @@ ul.products {
 
 		.button {
 			display: block;
-			background: $color__secondary;
-			border-top: 2px solid $color__accent;
+			@include border-top;
 			padding: 0.5rem;
 			
 			text-decoration: none;
