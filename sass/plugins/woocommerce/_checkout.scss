@@ -33,6 +33,28 @@
 			@include border;
 		}
 	}
+
+	.woocommerce-info {
+		background-color: $color__accent;
+		font-weight: 600;
+		width: fit-content;
+		padding: 0.25rem;
+		border-radius: 0.25rem;
+	}
+
+	.order_details {
+		text-align: left;
+	}
+
+	.woocommerce-Price-amount {
+		font-weight: 800;
+	}
+
+	.status-publish {
+		@include border;
+		padding: 0 1rem;
+	}
+	
 }
 
 @media screen and (min-width: 768px) {
