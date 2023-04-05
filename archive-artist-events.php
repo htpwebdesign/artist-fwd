@@ -22,6 +22,11 @@ get_header();
     </header>
 
     <?php
+
+			$current_datetime = current_datetime()->format('F j, Y g:i  a');
+
+			echo $current_datetime;
+			
 			$args = array(
 				'post_type' => 'artist-events',
 				'posts_per_page' => -1,
@@ -38,24 +43,29 @@ get_header();
         <h2 class="event-name"><?php the_title(); ?></h2>
 
         <?php
+
+
+					
 						if (function_exists( 'get_field' ) ) :
 							?>
 
         <?php
+								
+							if ( get_field( 'events_calendar') ) :
+
+									if($current_datetime < (the_field('events_calendar'))):
+									
+									?>
+        <p class="event-date"><?php the_field('events_calendar'); ?></p>
+        <?php 
+								
+								
+								
 								if ( get_field( 'event_photo') ) :
 									$photo = get_field('event_photo');
 									echo wp_get_attachment_image( $photo, 'large' );
 								endif;
 								
-								if ( get_field( 'events_calendar') ) :
-									?>
-        <p class="event-date"><?php the_field('events_calendar'); ?></p>
-        <?php 
-								$current_datetime = current_datetime()->format('F j, Y g:i  a');
-
-								echo $current_datetime;
-								
-								endif;
 
 								if ( get_field( 'event_desc') ) :
 									?>
@@ -81,9 +91,11 @@ get_header();
             <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>"
                 data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
         </div>
-        <?php endif; 
-								
+        <?php
+							 		endif; 
+								endif;
 								endif;	
+							endif;
 						endif;
 					?>
     </article>
