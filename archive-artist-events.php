@@ -51,7 +51,7 @@ get_header();
 								
 								if ( get_field( 'event_photo') ) :
 									$photo = get_field('event_photo');
-									echo wp_get_attachment_image( $photo, 'medium' );
+									echo wp_get_attachment_image( $photo, 'large' );
 								endif;
 								
 								
