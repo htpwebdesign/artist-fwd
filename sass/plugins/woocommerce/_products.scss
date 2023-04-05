@@ -60,7 +60,8 @@ ul.products {
 
 		.button {
 			display: block;
-			@include border-top;
+			background: $color__secondary;
+			border-top: 2px solid $color__accent;
 			padding: 0.5rem;
 			
 			text-decoration: none;

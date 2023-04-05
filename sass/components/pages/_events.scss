@@ -8,17 +8,15 @@
     .page-header {
         text-align: center;
     }
-    
-    .event-wrapper:not(:first-child) {
-        border-bottom: 1px solid $color__primary;
-    }
+  
     .event-wrapper {
         @include flex-justify(center);
         flex-wrap: wrap;
-        margin: 0 auto;
+        margin: 4rem auto;
+        border-radius: 0.5rem;
        .attachment-medium {
         width: 100%;
-       }
+    }
        .event-date {
         font-weight: 600;
         font-size: 1.5rem;
@@ -54,6 +52,16 @@
 
     .wc-block-grid__product {
         white-space: nowrap;
+    }
+
+    
+
+    article:nth-child(even) {
+        background-color: $color__accent;
+    }
+
+    article:nth-child(odd) {
+        background-color: $color__secondary;
     }
 
 
