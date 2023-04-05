@@ -1,3 +1,20 @@
+.page-id-15 {
+	.woocommerce-info {
+		background-color: $color__accent;
+		font-weight: 600;
+		width: fit-content;
+		padding: 0.25rem;
+		border-radius: 0.25rem;
+	}
+
+	.button {
+		@include border;
+		font-weight: 600;
+		padding: 0.25rem;
+	}
+}
+
+
 .woocommerce-checkout {
 
 	.checkout, .checkout_coupon  {
@@ -15,14 +32,6 @@
 		.wc-stripe-elements-field {
 			@include border;
 		}
-	}
-
-	.woocommerce-info {
-		background-color: $color__accent;
-		font-weight: 600;
-		width: fit-content;
-		padding: 0.25rem;
-		border-radius: 0.25rem;
 	}
 }
 
