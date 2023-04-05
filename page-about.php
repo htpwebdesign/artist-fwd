@@ -60,7 +60,7 @@ get_header();
 							if ( get_field( 'portfolio_cta') ) :
 								?>
             <a class="faux-btn" href="<?php the_field('portfolio_cta'); ?>" target="_blank"
-                rel="noopener noreferrer">Portolio</a>
+                rel="noopener noreferrer">Portfolio</a>
             <?php
 							endif;
 						?>

@@ -1,9 +1,12 @@
 .page-id-23 {
+
+    
+        min-height: 0;
+ 
         .hero-banner {
             img {
                 object-fit: cover;
-                position: fixed;
-                height: 100vh;
+                height: 80vh;
             }
         }
 
