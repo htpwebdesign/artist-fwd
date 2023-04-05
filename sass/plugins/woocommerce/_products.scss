@@ -37,6 +37,10 @@ ul.products {
 	margin: 0;
 	padding: 0;
 
+	li.product-category img {
+		display: none;
+	}
+
 	li.product {
 		list-style: none;
 		position: relative;
