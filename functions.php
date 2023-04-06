@@ -272,14 +272,22 @@ function custom_menu_order( $menu_ord ) {
 	}
 	add_filter( 'login_headertext', 'my_login_logo_url_title' );
 	
-	// Styling the login page. 
-	// Override WordPress defaults by making your declaration more specific than the default styling. 
-	// Most of the default styling exists within a file called login.css in wp-admin/css.
-	
-	// Enqueue your own css to override the default WordPress css.
 	
 	function my_login_stylesheet() {
 		wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/style-login.css' );
 	}
 	add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
 	
+
+	/**
+ * Auto Complete all WooCommerce orders.
+ */
+add_action( 'woocommerce_thankyou', 'custom_woocommerce_auto_complete_order' );
+function custom_woocommerce_auto_complete_order( $order_id ) { 
+    if ( ! $order_id ) {
+        return;
+    }
+
+    $order = wc_get_order( $order_id );
+    $order->update_status( 'completed' );
+}
