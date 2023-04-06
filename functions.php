@@ -260,3 +260,26 @@ function custom_menu_order( $menu_ord ) {
 	add_filter( 'custom_menu_order', 'custom_menu_order', 10, 1 );
 		
 	add_filter( 'menu_order', 'custom_menu_order', 10, 1 );
+
+
+	function my_login_logo_url() {
+		return home_url();
+	}
+	add_filter( 'login_headerurl', 'my_login_logo_url' );
+	
+	function my_login_logo_url_title() {
+		return 'Your Site Name and Info';
+	}
+	add_filter( 'login_headertext', 'my_login_logo_url_title' );
+	
+	// Styling the login page. 
+	// Override WordPress defaults by making your declaration more specific than the default styling. 
+	// Most of the default styling exists within a file called login.css in wp-admin/css.
+	
+	// Enqueue your own css to override the default WordPress css.
+	
+	function my_login_stylesheet() {
+		wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/style-login.css' );
+	}
+	add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
+	
