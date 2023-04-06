@@ -22,4 +22,5 @@ input[type="submit"] {
 
 button {
 	@include border;
+	text-decoration: none;
 }
