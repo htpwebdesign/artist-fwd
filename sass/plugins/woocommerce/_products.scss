@@ -40,9 +40,18 @@ ul.products {
 	padding: 0;
 	display: flex;
     flex-wrap: wrap;
+	justify-content: center;
 
 	li.product-category.product {
 		border: 0;
+		
+
+		.woocommerce-loop-category__title {
+			font-size: .8rem;
+			padding: 0 .5rem;
+			padding-right: 1rem;
+			
+		}
 	}
 
 	li.product-category img {
