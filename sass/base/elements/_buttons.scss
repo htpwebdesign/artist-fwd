@@ -20,11 +20,6 @@ input[type="submit"] {
 	}
 }
 
-.faux-btn {
+button {
 	@include border;
-	padding: 0.5rem;
-	text-decoration: none;
-	text-align: center;
-	display: block;
-	margin: 1rem 0;
 }
