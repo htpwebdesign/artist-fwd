@@ -88,6 +88,7 @@ function artist_fwd_register_custom_post_types(){
         'show_in_nav_menus'  => true,
         'show_in_admin_bar'  => true,
         'show_in_rest'       => true,
+        'exclude_from_search'=> true,
         'query_var'          => true,
         'rewrite'            => array( 'slug' => 'artist-events' ),
         'capability_type'    => 'post',
