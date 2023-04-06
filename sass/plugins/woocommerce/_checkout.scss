@@ -24,7 +24,11 @@
 			font-weight: 600;
 		}
 
-		input, 
+		input {
+			width: 100%;
+			@include border;
+		}
+
 		textarea, 
 		fieldset,
 		button,
@@ -40,6 +44,19 @@
 		width: fit-content;
 		padding: 0.25rem;
 		border-radius: 0.25rem;
+	}
+
+	.woocommerce-checkout-review-order {
+		thead {
+			text-align: left;
+		}
+
+		tfoot th {
+			text-align: right;
+			&::after {
+				content: " : ";
+			}
+		}
 	}
 
 	.order_details {
