@@ -145,7 +145,7 @@ p.stars {
 	ul.tabs {
 		list-style: none;
 		margin: 0;
-		padding: 0;
+		padding:0;
 		text-align: left;
 
 		li {
@@ -230,7 +230,7 @@ p.no-comments {
 .woocommerce-info,
 .woocommerce-noreviews,
 p.no-comments {
-	background-color: $woocommerce__color-info;
+	background-color: transparent;
 }
 
 .woocommerce-error {

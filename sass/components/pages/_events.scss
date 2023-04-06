@@ -63,6 +63,7 @@
 
     article:nth-child(even) {
         background-color: $color__accent;
+        color: white;
     }
 
     article:nth-child(odd) {
