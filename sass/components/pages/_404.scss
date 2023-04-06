@@ -1,0 +1,14 @@
+.error404 {
+        .error-404.not-found {
+            @include border;
+            padding: 0 1rem 1rem;
+            width: fit-content;
+            margin: 1rem auto;
+
+            .search-field, 
+            .search-submit {
+                @include border;
+                padding: 0.5rem;
+            }
+        }
+}
