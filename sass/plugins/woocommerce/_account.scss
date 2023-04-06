@@ -1,0 +1,79 @@
+.woocommerce-account {
+
+    input {
+        @include border;
+    }
+
+    .login {
+        display: table;
+
+        .woocommerce-form-row {
+            display: table-row;
+        }
+
+        label, 
+        input {
+            display: table-cell;
+            margin: 0.25rem;
+        }
+    }
+
+    .woocommerce-info {
+        background-color: $color__accent;
+		font-weight: 600;
+		width: fit-content;
+		padding: 0.25rem;
+		border-radius: 0.25rem;
+        margin: 1rem 0;
+    }
+
+    .woocommerce-MyAccount-navigation {
+        @include border;
+        ul {
+            padding: 0.5rem 1rem;
+            margin: 0.5rem 1rem;
+        }
+
+        .is-active::after {
+            content: "<";
+            font-weight: 800;
+            @include border;
+            border-radius: 25%;
+        }
+
+        li {
+            list-style: circle;
+            font-weight: 600;
+        }
+    }
+
+    .woocommerce-MyAccount-content {
+        @include border;
+        padding: 0 1rem;
+
+        .edit {
+            @include border;
+            text-decoration: none;
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+        }
+
+        .select2-selection {
+            @include border;
+        }
+
+        fieldset {
+            @include border;
+        }
+
+        .woocommerce-address-fields, .woocommerce-EditAccountForm {
+            .input-text {
+                width: 100%;
+            }
+            .woocommerce-Input {
+                width: 100%;
+            }
+        }
+    }
+
+}
