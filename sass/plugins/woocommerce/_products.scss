@@ -14,7 +14,6 @@
 	padding: 0;
 	margin: 0;
 	text-align: center;
-	clear: both;
 
 	li {
 		display: inline-block;
@@ -37,6 +36,8 @@
 ul.products {
 	margin: 0;
 	padding: 0;
+	display: flex;
+    flex-wrap: wrap;
 
 	li.product-category img {
 		display: none;
