@@ -10,6 +10,8 @@
 	width: 100%;
 }
 
+
+
 .woocommerce-pagination {
 	padding: 0;
 	margin: 0;
@@ -38,6 +40,10 @@ ul.products {
 	padding: 0;
 	display: flex;
     flex-wrap: wrap;
+
+	li.product-category.product {
+		border: 0;
+	}
 
 	li.product-category img {
 		display: none;
